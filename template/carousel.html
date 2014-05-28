@@ -1,0 +1,9 @@
+<div id="carousel">
+  <% _.each(block,function(b){ %>
+  <div class="carousel-item">
+    <button class="carousel-prev">&laquo;</button>
+    <%= b.title %>
+    <button class="carousel-next">&raquo;</button>
+  </div>
+  <% }) %>
+</div>
