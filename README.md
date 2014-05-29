@@ -1,6 +1,6 @@
 # Backbone Carousel #
 
-[Backbone.JS](http://www.lukedalessandro.com/img/icon_backbonejs.png)
+![Backbone.JS](http://www.lukedalessandro.com/img/icon_backbonejs.png)
 
 ## Overview
 

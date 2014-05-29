@@ -1,11 +1,17 @@
 window.app = {
 	collections: {},
 	dispatcher: _.clone(Backbone.events),
-	models: {},
 	views: {},
 	initialize: function(){
-		app.router = new AppRouter();
-		Backbone.history.start({ pushState: true });
+		app.views.carousel = new CarouselView({
+			carousel: 'template/carousel.html',
+			block: 'template/block.html'
+		});
+		app.router = new Router();
+		Backbone.history.start();
+	},
+	error: function(){
+		alert('Something went wrong!');
 	}
 };
 
