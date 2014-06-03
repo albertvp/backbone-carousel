@@ -22,6 +22,8 @@ window.CarouselView = Backbone.View.extend({
   initialize: function(options) {
     app._carousel = this;
     if (options.el) this.el = options.el;
+    window.el = this.el = $(this.el);
+    window.onresize = function(){ app._carousel.render(); };
     api.getTemplate(options.carousel, function(tmpl){
       app._carousel.template = _.template(tmpl);
       api.getTemplate(options.block, function(tmpl){
@@ -47,11 +49,11 @@ window.CarouselView = Backbone.View.extend({
     var k = this.collection.models.length, pack = []; 
     _.each(this.collection.models,function(block) {
       if (pack.length===NUMBLOCKS) {
-        $(app._carousel.el).append(app._carousel.template({ pack: pack.slice(0) }));
+        app._carousel.el.append(app._carousel.template({ pack: pack.slice(0) }));
         pack = [];
       } else pack.push(new BlockView(block).render());
       if (--k===0) {
-        if (pack.length) $(app._carousel.el).append(app._carousel.template({ pack: pack }));
+        if (pack.length) app._carousel.el.append(app._carousel.template({ pack: pack }));
         app._carousel.map();
       }
     });
